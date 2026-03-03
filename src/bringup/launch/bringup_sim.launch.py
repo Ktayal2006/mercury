@@ -21,10 +21,16 @@ def generate_launch_description():
         )
     )
 
-    joint_state_publisher = Node(
-        package='joint_state_publisher',
-        executable='joint_state_publisher',
-        name='joint_state_publisher',
+    lidar_static_transform = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments=[
+            '0', '0', '0',
+            '0', '0', '0',
+            'base_link',
+            'skid_steer_bot/base_footprint/lidar_sensor'
+        ],
+        parameters=[{'use_sim_time': True}],
         output='screen'
     )
 
@@ -44,5 +50,5 @@ def generate_launch_description():
     return LaunchDescription([
         simulation,
         base,
-        joint_state_publisher
+        lidar_static_transform
     ])

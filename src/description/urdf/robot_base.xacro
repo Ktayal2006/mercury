@@ -54,7 +54,15 @@
   </gazebo>
 
   <link name="imu_link">
-    <origin xyz="0 0 0.15" rpy="0 0 0"/>
+    <visual>
+      <geometry>
+        <box size="0.03 0.03 0.02"/>
+      </geometry>
+      <material name="orange">
+        <color rgba="1 0.5 0 1"/>
+      </material>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+    </visual>
   </link>
 
   <joint name="imu_joint" type="fixed">
@@ -64,23 +72,39 @@
   </joint>
 
   <link name="gps_link">
-    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    <visual>
+      <geometry>
+        <box size="0.03 0.03 0.02"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <origin xyz="0 0 0.2" rpy="0 0 0"/>
+    </visual>
   </link>
 
   <joint name="gps_joint" type="fixed">
     <parent link="base_link"/>
     <child link="gps_link"/>
-    <origin xyz="0 0 0.1"/>
+    <origin xyz="0 0 0.2"/>
   </joint>
 
   <link name="lidar_link">
-    <origin xyz="0.2 0 0.15" rpy="0 0 0"/>
+    <visual>
+      <geometry>
+        <cylinder radius="0.04" length="0.05"/>
+      </geometry>
+      <origin xyz="0.1 0 0.15" rpy="0 0 0"/>
+      <material name="gray">
+        <color rgba="0.6 0.6 0.6 1.0"/>
+      </material>
+    </visual>
   </link>
 
   <joint name="lidar_joint" type="fixed">
     <parent link="base_link"/>
     <child link="lidar_link"/>
-    <origin xyz="0.2 0 0.15"/>
+    <origin xyz="0.11 0 0.15"/>
   </joint>
 
   <link name="camera_link">

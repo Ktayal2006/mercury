@@ -29,6 +29,9 @@
     <plugin filename="gz-sim-imu-system"
         name="gz::sim::systems::Imu"/>
 
+    <plugin filename="gz-sim-ros2-system"
+        name="gz::sim::systems::ROS2"/>
+
     <!-- ================= SENSORS SYSTEM ================= -->
     <plugin filename="gz-sim-sensors-system"
         name="gz::sim::systems::Sensors">

@@ -7,13 +7,16 @@ import os
 def generate_launch_description():
 
     pkg_planning = get_package_share_directory('planning')
+
     params = os.path.join(pkg_planning, 'config', 'nav2_params.yaml')
+    global_costmap = os.path.join(pkg_planning, 'config', 'global_costmap.yaml')
+    local_costmap = os.path.join(pkg_planning, 'config', 'local_costmap.yaml')
 
     planner = Node(
         package='nav2_planner',
         executable='planner_server',
         name='planner_server',
-        parameters=[params],
+        parameters=[params, global_costmap],
         output='screen'
     )
 
@@ -21,7 +24,7 @@ def generate_launch_description():
         package='nav2_controller',
         executable='controller_server',
         name='controller_server',
-        parameters=[params],
+        parameters=[params, local_costmap],
         output='screen'
     )
 

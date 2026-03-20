@@ -11,15 +11,16 @@ def generate_launch_description():
         output='screen',
         parameters=[
             {
+                "use_sim_time": True,
                 "image_topic": "/camera/image_raw",
                 "camera_info_topic": "/camera/camera_info",
                 "costmap_topic": "/perception/road_costmap",
-                "costmap_frame": "base_link",
+                "costmap_frame": "map",            # ← also fix this (was "base_link")
                 "bev_width": 800,
                 "bev_height": 600,
                 "resolution": 0.0051,
                 "undistort": True,
-                "show_debug": True
+                "show_debug": True,
             }
         ]
     )

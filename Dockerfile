@@ -17,4 +17,7 @@ RUN if [ ! -f /etc/ros/rosdep/sources.list.d/20-default.list ]; then \
 
 RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
 
+# Face recognition dependencies
+RUN pip3 install insightface onnxruntime pyserial opencv-python-headless numpy --break-system-packages
+
 CMD ["/bin/bash"]

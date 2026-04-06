@@ -30,6 +30,9 @@ setup(
         'console_scripts': [
             'lane_costmap = perception.lane_costmap:main',
             'calibrate_homography = perception.calibrate_homography:main',
+            'face_recognition = perception.face_recognition_node:main',
+            'face_task = perception.face_task_node:main',
+            'turret_controller = perception.turret_controller_node:main',
         ],
     },
 )
